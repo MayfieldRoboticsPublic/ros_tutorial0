@@ -139,8 +139,11 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(ros_tutorial0_node src/talker.cpp)
-target_link_libraries(ros_tutorial0_node ${catkin_LIBRARIES})
+add_executable(talker src/talker.cpp)
+target_link_libraries(talker ${catkin_LIBRARIES})
+
+add_executable(listener src/listener.cpp)
+target_link_libraries(listener ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -177,7 +180,9 @@ target_link_libraries(ros_tutorial0_node ${catkin_LIBRARIES})
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
 
-install(TARGETS ros_tutorial0_node
+install(TARGETS
+  talker
+  listener
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
